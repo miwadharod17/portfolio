@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Miwa — AI/ML Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #3b0a0f;
+      --red-btn:   #7a1212;
+      --red-hover: #9e1c1c;
+      --tan:       #d4b896;
+      --card-bg:   #cdb08a;
+      --card-icon: rgba(50,10,10,0.15);
+      --card-text: #2e0a0a;
+      --muted:     #b8956e;
+      --divider:   rgba(212,184,150,0.2);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--tan);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 52px;
+      border-bottom: 1px solid var(--divider);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+    }
+
+    .logo-box {
+      width: 52px;
+      height: 52px;
+      background: var(--tan);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      overflow: hidden;
+    }
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-links { display: flex; gap: 14px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--tan);
+      background: var(--red-btn);
+      padding: 10px 30px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 15px;
+      transition: background 0.18s, transform 0.15s;
+    }
+    .nav-links a:hover { background: var(--red-hover); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 72px 52px 80px;
+      min-height: calc(100vh - 93px);
+      gap: 48px;
+    }
+
+    .hero-left { flex: 1; max-width: 560px; }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #c0392b;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: up 0.7s ease 0.1s both;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(68px, 9vw, 108px);
+      font-weight: 400;
+      line-height: 1.04;
+      color: var(--tan);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: up 0.8s ease 0.2s both;
+    }
+
+    .hero-bio {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 450px;
+      opacity: 0;
+      animation: up 0.8s ease 0.35s both;
+    }
+
+    /* CONTACT CARD */
+    .contact-card {
+      width: 340px;
+      flex-shrink: 0;
+      background: var(--card-bg);
+      border-radius: 22px;
+      padding: 36px 38px;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.55);
+      opacity: 0;
+      animation: up 0.8s ease 0.45s both;
+    }
+
+    .contact-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--card-text);
+      margin-bottom: 26px;
+    }
+
+    .c-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      text-decoration: none;
+      transition: transform 0.15s;
+    }
+    .c-row:last-child { margin-bottom: 0; }
+    .c-row:hover { transform: translateX(4px); }
+
+    .c-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      background: var(--card-icon);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .c-icon svg { width: 18px; height: 18px; fill: var(--card-text); }
+    .c-label { font-size: 14px; font-weight: 500; color: var(--card-text); }
+
+    @keyframes up {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 840px) {
+      nav { padding: 16px 24px; }
+      .nav-links a { padding: 8px 16px; font-size: 13px; }
+      .hero { flex-direction: column; padding: 48px 24px 60px; align-items: flex-start; }
+      .contact-card { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-box">
+    <img src="data:image/jpeg;base64,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" alt="Miwa logo" />
+  </div>
+  <ul class="nav-links">
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+  </ul>
+</nav>
+
+<main class="hero">
+  <div class="hero-left">
+    <p class="tag">AI/ML Developer</p>
+    <h1 class="hero-title">Hello,<br>I'm Miwa</h1>
+    <p class="hero-bio">I'm an AI/ML developer building intelligent, scalable solutions that turn data into impactful real-world insights using machine learning and deep learning.</p>
+  </div>
+
+  <div class="contact-card">
+    <h2>Contact</h2>
+
+    <a class="c-row" href="https://github.com/miwadharod17" target="_blank">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </div>
+      <span class="c-label">github.com/miwadharod17</span>
+    </a>
+
+    <a class="c-row" href="mailto:miwadharod@gmail.com">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
+      <span class="c-label">miwadharod@gmail.com</span>
+    </a>
+
+    <a class="c-row" href="https://linkedin.com/in/miwa-dharod" target="_blank">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </div>
+      <span class="c-label">linkedin.com/in/miwa-dharod</span>
+    </a>
+
+    <a class="c-row" href="#">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg>
+      </div>
+      <span class="c-label">Resume</span>
+    </a>
+  </div>
+</main>
+
+</body>
+</html>
